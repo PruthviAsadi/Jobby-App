@@ -56,6 +56,7 @@ class Jobs extends Component {
 
     const {activeSalaryRangeId, employmentTypesChecked, searchInput} =
       this.state
+
     const employTypes = employmentTypesChecked.join(',')
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employTypes}&minimum_package=${activeSalaryRangeId}&search=${searchInput}`
@@ -130,6 +131,7 @@ class Jobs extends Component {
           onChange={e => this.setState({searchInput: e.target.value})}
         />
         <button
+          aria-label="Save"
           className="search-button"
           type="button"
           data-testid="searchButton"
